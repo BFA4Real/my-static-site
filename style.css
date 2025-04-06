@@ -1,0 +1,123 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  padding: 2rem;
+  margin: 0;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.tabs {
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 1rem;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  flex: 1 1 30%;
+  min-width: 100px;
+  padding: 0.6rem 1rem;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tab-button i {
+  font-size: 1rem;
+}
+
+.tab-button.active {
+  background: #333;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.tab-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#dark-toggle {
+  margin: 1rem auto;
+  display: block;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+body.dark-mode {
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #eee;
+  background-blur: 10px;
+  background-color: rgba(0, 0, 0, 0.6);  /* Semi-transparent dark overlay */
+}
+
+body.dark-mode .tab-button {
+  background: #555;
+  color: #eee;
+}
+
+body.dark-mode .tab-button.active {
+  background: #fff;
+  color: #000;
+}
+
+body.dark-mode .tab-content {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark-mode #dark-toggle {
+  background: #eee;
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .tab-button {
+    flex: 1 1 100%;
+  }
+   body {
+    background-size: contain; /* Resize background to fit */
+  }
+}
