@@ -8,6 +8,7 @@ body {
   background-size: cover;
   color: #333;
   padding: 2rem;
+  padding-bottom: 50px; 
   margin: 0;
   transition: background 0.5s ease, color 0.5s ease;
 }
@@ -61,7 +62,7 @@ h1 {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  background: white;
+  background: grey;
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -83,6 +84,34 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
+}
+.news-ticker {
+  background: #000;
+  color: #fff;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.news-ticker span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 150s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 body.dark-mode {
@@ -116,6 +145,12 @@ body.dark-mode #dark-toggle {
 @media (max-width: 600px) {
   .tab-button {
     flex: 1 1 100%;
+  }
+  .tabs {
+    flex-direction: column;
+  }
+  .tab-content {
+    padding: 1rem;
   }
    body {
     background-size: contain; /* Resize background to fit */

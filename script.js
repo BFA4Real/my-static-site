@@ -29,3 +29,18 @@ const toggle = document.getElementById('dark-toggle');
 toggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
 });
+
+// News
+fetch('https://saurav.tech/NewsAPI/top-headlines/category/business/us.json')
+  .then(res => res.json())
+  .then(data => {
+    const headlines = data.articles.map(article => article.title).join(' • ');
+    const ticker = document.getElementById('news-ticker');
+    ticker.innerHTML = `<span>${headlines}</span>`;
+  })
+  .catch(err => {
+    document.getElementById('news-ticker').textContent = 'Failed to load news.';
+    console.error('News fetch error:', err);
+  });
+
+
